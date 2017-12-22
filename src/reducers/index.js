@@ -22,10 +22,13 @@ import BooksReducer from './reducer_books'; // we name the reducer here in this
 																						// component by its name (e.g.
 																						// class BookDetail, export default
 																						// BookDetail in containers/book-detail.js).
-																						// I think it is because in a reducer
+																						// I think this is because in a reducer
 																						// file, there is only 1 function
 																						// defined/exported for each reducer
-																						// so it doesn't need a name.
+																						// so we don't need a name that would
+																						// otherwise distinguish the function
+																						// from other functions that could be
+																						// exported from the file.
 import ActiveBook from './reducer_active_book'
 
 const rootReducer = combineReducers({

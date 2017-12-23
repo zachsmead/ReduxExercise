@@ -1,7 +1,14 @@
 // what is a container, as opposed to a component?
 // a container is a React component that is directly connected
 // to the application's state that is managed by Redux.
+
+// NOTE: with a container, whenever application state changes, the container
+// will instantly re-render.
+
 // also known as "smart" components as opposed to "dumb" components.
+
+// React and Redux are 2 completely separate libraries, so in order to hook
+// them up to each other we need to use a 3rd library called react-redux.
 
 
 import React, { Component } from 'react';
@@ -33,22 +40,27 @@ export class BookList extends Component {
 	}
 }
 
-// in the function mapStateToProps, we're telling React to grab the data
-// in reducers/index.js - that's the location of the data managed by Redux.
+// in the function mapStateToProps, we're telling React to grab the
+// application's state - all of it - that's managed by Redux -
+// and React will grab the data in reducers/index.js.
 
-// and we tell React which pieces of state we want to use in this component,
-// and React stores those pieces of state inside the component's props.
+// * we then tell React which pieces of state we want to use in this component,
+// * and React stores those pieces of state inside the component's props.
 
 // Whatever is returned by this function will show up as props inside of BookList.
 // ALSO IMPORTANT: if the state ever changes, this container will instantly
 // re-render with a new list of books.
 function mapStateToProps(state) {
 	return {
-		books: state.books // 'books:' becomes a key in props.
-											 // 'state.books' gives us the list of books defined in
+		books: state.books // * 'books:' becomes a key in props.
+											 // * 'state.books' gives us the list of books defined in
 											 // reducers/reducer_books.js, and this list becomes the
 											 // value for the key 'books:' that we just defined in
 											 // props.
+
+											 // with a container, whenever application state changes,
+											 // the object in the state function will be assigned as
+											 // props to the container.
 	};
 }
 
@@ -60,6 +72,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-// Promotes BookList from a component to a container - it needs to know about this new dispatch method,
-// selectBook. Make it available as a prop.
+// the line connect(mapStateToProps)(BookList) promotes BookList from a component
+// to a container. the { connect } function that we imported from react-redux,
+// it takes a function (mapStateToProps) and a component (BookList), and produces
+// a container.
+
+// It needs to know about this new dispatch method, selectBook.
+// Make it available as a prop.
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);

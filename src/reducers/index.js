@@ -40,4 +40,5 @@ const rootReducer = combineReducers({
 	activeBook: ActiveBook
 });
 
-export default rootReducer;
+export default rootReducer; // the function rootReducer will be returned
+														// when we call mapStateToProps.

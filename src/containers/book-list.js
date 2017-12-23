@@ -33,15 +33,22 @@ export class BookList extends Component {
 	}
 }
 
+// in the function mapStateToProps, we're telling React to grab the data
+// in reducers/index.js - that's the location of the data managed by Redux.
 
+// and we tell React which pieces of state we want to use in this component,
+// and React stores those pieces of state inside the component's props.
+
+// Whatever is returned by this function will show up as props inside of BookList.
+// ALSO IMPORTANT: if the state ever changes, this container will instantly
+// re-render with a new list of books.
 function mapStateToProps(state) {
-	// Whatever is returned here will show up as props inside of BookList
-
-	// ALSO IMPORTANT: if the state ever changes, this container will instantly re-render with a new list of books.
 	return {
-		books: state.books
-	//^ 'books' becomes a key in props
-	//			 ^ state.books becomes the value for the key 'books ''
+		books: state.books // 'books:' becomes a key in props.
+											 // 'state.books' gives us the list of books defined in
+											 // reducers/reducer_books.js, and this list becomes the
+											 // value for the key 'books:' that we just defined in
+											 // props.
 	};
 }
 

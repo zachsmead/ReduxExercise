@@ -1,3 +1,9 @@
+// what is a container, as opposed to a component?
+// a container is a React component that is directly connected
+// to the application's state that is managed by Redux.
+// also known as "smart" components as opposed to "dumb" components.
+
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectBook } from '../actions/index';
@@ -34,8 +40,8 @@ function mapStateToProps(state) {
 	// ALSO IMPORTANT: if the state ever changes, this container will instantly re-render with a new list of books.
 	return {
 		books: state.books
-	//  ^ 'books' becomes a key in props
-	//						^ state.books becomes the value for the key 'books ''
+	//^ 'books' becomes a key in props
+	//			 ^ state.books becomes the value for the key 'books ''
 	};
 }
 
@@ -44,16 +50,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	// Whenever selectBook is called, the result should be passed to all of our reducers
 	return bindActionCreators({ selectBook: selectBook }, dispatch);
-
 }
 
 
 // Promotes BookList from a component to a container - it needs to know about this new dispatch method,
-// selectBook. Make it available as a prop. 
+// selectBook. Make it available as a prop.
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
-
-
-
-
-
-

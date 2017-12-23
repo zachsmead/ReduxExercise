@@ -31,6 +31,10 @@ import BooksReducer from './reducer_books'; // we name the reducer here in this
 																						// exported from the file.
 import ActiveBook from './reducer_active_book'
 
+
+// this function combines all the other reducers, or pieces of state,
+// into a single function, a single composite of all pieces of state.
+// and we can export this to be used in other parts of the app.
 const rootReducer = combineReducers({
 	books: BooksReducer,
 	activeBook: ActiveBook

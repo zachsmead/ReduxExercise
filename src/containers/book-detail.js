@@ -24,7 +24,9 @@ class BookDetail extends Component {
 }
 
 
-
+// in this container's props, get the property activeBook from the application
+// state (rootReducer) in reducers/index.js and set that as the value for
+// props.book.
 function mapStateToProps(state) {
 	return {
 		book: state.activeBook

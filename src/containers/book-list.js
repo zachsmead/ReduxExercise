@@ -72,10 +72,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-// the line connect(mapStateToProps)(BookList) promotes BookList from a component
-// to a container. the { connect } function that we imported from react-redux,
-// it takes a function (mapStateToProps) and a component (BookList), and produces
-// a container.
+// the line below, connect(mapStateToProps)(BookList) promotes BookList from a
+// component to a container. the { connect } function that we imported from
+// react-redux, it takes a function (mapStateToProps) and a component (BookList),
+// and produces a container.
 
 // It needs to know about this new dispatch method, selectBook.
 // Make it available as a prop.

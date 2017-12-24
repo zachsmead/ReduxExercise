@@ -1,3 +1,6 @@
+// this file doesn't have a mapDispatchToProps function, because we are only
+// drawing from application state, not updating it with any actions.
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 

@@ -14,7 +14,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectBook } from '../actions/index';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux'; // this import allows us to send an
+																						// action thru all the different
+																						// reducers. see actions/index.js
+																						// for more detail on the process.
 
 
 export class BookList extends Component {
@@ -65,10 +68,19 @@ function mapStateToProps(state) {
 }
 
 // Anything returned from this function will end up as props on the BookList container
-// See below: 'selectBook' becomes a key in props, 'selectBook' is the value.
+// See below: first 'selectBook' becomes a key in props, second 'selectBook' is
+// the value and second selectBook is also the actual ActionCreator that we
+// imported at the beginning of this file.
 function mapDispatchToProps(dispatch) {
-	// Whenever selectBook is called, the result should be passed to all of our reducers
+	// the code below tells Redux:
+	// 'Whenever selectBook is called, the result should be passed to all of our
+	// reducers.'
+	// the 'dispatch' function is what actually receives the action and passes
+	// it to all the reducers.
 	return bindActionCreators({ selectBook: selectBook }, dispatch);
+	// bindActionCreators binds the selectBook action, to the dispatch function
+	// and allows the otherwise plain old Javascript function to actually
+	// flow through our reducers.
 }
 
 

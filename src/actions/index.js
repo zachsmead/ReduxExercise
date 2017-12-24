@@ -12,6 +12,8 @@ export function selectBook(book) {
 	// reducer that the app contains. If the action's type matches with a type
 	// that a particular reducer cares about, or in other words, is listening for,
 	// then some code will get executed and the reducer will return something.
+	// And that thing that gets returned, will become the new value of application
+	// state.
 	// This is usually done by using a switch statement that has different cases
 	// for different action types.
 
@@ -23,6 +25,13 @@ export function selectBook(book) {
 	// See reducers/reducer_active_book.js. It is listening for the action type
 	// 'BOOK_SELECTED'. So whenever the action below gets dispatched,
 	// reducer_active_book's code will notice a match and will trigger.
+
+	// Once all the reducer have processed the action, and either returned some
+	// updated state (because they cared about the action type) or their current
+	// state (because they didn't care about the action type), the application state
+	// is re-assembled from all the updated pieces of state, and then pumped back
+	// into all the containers. All the containers then re-render with their new
+	// data
 
 
 	console.log('A book has been selected:', book.title);

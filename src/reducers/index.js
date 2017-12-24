@@ -14,7 +14,8 @@
 // of book titles.
 
 
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'; // This function allows us to combine
+																				 // pieces of state into a single reducer.
 import BooksReducer from './reducer_books'; // we name the reducer here in this
 																						// line and not in the actual file,
 																						// which is unlike other components
